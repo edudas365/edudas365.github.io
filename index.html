@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bikash Das – Online Mathematics & Science Tutor</title>
+<meta name="description" content="Online Mathematics and Science tutor for Classes IX–X, CBSE and ICSE. Based in Bhubaneswar, Odisha.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f7f3; --surface:#ffffff; --ink:#10242b; --muted:#506a70; --line:#d5e0dc;
+  --brand:#0f6b58; --brand-ink:#ffffff; --chalk-bg:#12303a; --chalk:#eaf2ee; --yellow:#f2d16b;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0a1a22; --surface:#10262f; --ink:#e8f1ee; --muted:#9bb5b8; --line:#21404a;
+    --brand:#3cc4a4; --brand-ink:#06201a; --chalk-bg:#071419; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0a1a22; --surface:#10262f; --ink:#e8f1ee; --muted:#9bb5b8; --line:#21404a;
+  --brand:#3cc4a4; --brand-ink:#06201a; --chalk-bg:#071419; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "Newsreader",Georgia,serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.sans{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brand);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+
+/* contact bar */
+.topbar{background:var(--brand);color:var(--brand-ink);display:flex;flex-wrap:wrap;justify-content:center;gap:4px 26px;padding:9px 16px;font:700 16px "Bricolage Grotesque",sans-serif}
+.topbar a{text-decoration:none;white-space:nowrap}
+.topbar a:hover{text-decoration:underline}
+/* nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:14px;height:60px}
+.logo{font:800 20px "Bricolage Grotesque",sans-serif;text-decoration:none;letter-spacing:-.02em}
+.links{display:flex;gap:10px;align-items:center}
+.menu{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+.menu i{display:block;width:18px;height:2px;border-radius:2px;background:currentColor}
+.scrim{position:fixed;inset:0;background:rgba(5,15,20,.55);z-index:40}
+.side{position:fixed;top:0;right:0;bottom:0;width:min(300px,82vw);z-index:50;background:var(--surface);border-left:1px solid var(--line);padding:calc(env(safe-area-inset-top,0px) + 16px) 24px calc(env(safe-area-inset-bottom,0px) + 24px);display:flex;flex-direction:column;gap:18px;overflow-y:auto;transform:translateX(100%);visibility:hidden;transition:transform .25s ease,visibility 0s .25s}
+.side.open{transform:none;visibility:visible;transition:transform .25s ease}
+.side .close{align-self:flex-end}
+.who2{margin:0;font:800 22px "Bricolage Grotesque",sans-serif;line-height:1.2}
+.who2 span{display:block;font:500 15px "Newsreader",serif;color:var(--muted);margin-top:4px}
+.side nav{display:flex;flex-direction:column}
+.side nav a{text-decoration:none;font:600 18px "Bricolage Grotesque",sans-serif;padding:12px 0;border-bottom:1px solid var(--line)}
+.side nav a:hover{color:var(--brand)}
+.side .btn{text-align:center;margin-top:auto}
+.theme{border:1px solid var(--line);background:var(--surface);color:var(--ink);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:16px}
+
+/* hero */
+.hero{padding:64px 0 48px;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.hero h1{font-size:clamp(44px,8vw,84px);line-height:.95;letter-spacing:-.04em;font-weight:800;margin:0 0 14px}
+.role{font:600 clamp(18px,2.4vw,22px) "Bricolage Grotesque",sans-serif;color:var(--brand);margin:0 0 18px}
+.lead{max-width:52ch;color:var(--muted);font-size:19px;margin:0 0 26px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{font:600 16px "Bricolage Grotesque",sans-serif;padding:13px 22px;border-radius:999px;text-decoration:none;border:1.5px solid var(--brand);transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn.main{background:var(--brand);color:var(--brand-ink)}
+.btn.ghost{color:var(--ink)}
+.board{background:var(--chalk-bg);color:var(--chalk);border-radius:20px;padding:26px 26px 30px;border:8px solid #8a6a43;box-shadow:0 18px 40px rgba(0,0,0,.18);min-height:320px;position:relative}
+.board .who{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.avatar{position:relative;overflow:hidden;flex:none;width:84px;height:84px;border-radius:50%;background:var(--yellow);color:#10242b;display:grid;place-items:center;font:800 24px "Bricolage Grotesque",sans-serif}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.board .who b{font:600 17px "Bricolage Grotesque",sans-serif;display:block}
+.board .who span{font-size:15px;opacity:.75}
+.lines{font:italic 400 clamp(22px,3vw,28px)/1.7 "Newsreader",serif;min-height:150px}
+.lines div{white-space:nowrap;overflow:hidden}
+.lines .c{color:var(--yellow)}
+.caret{display:inline-block;width:2px;height:1em;background:var(--chalk);vertical-align:-3px;margin-left:2px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:36px}}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden}
+.facts div{padding:18px 20px;border-right:1px solid var(--line)}
+.facts div:last-child{border-right:0}
+.facts b{display:block;font:700 22px "Bricolage Grotesque",sans-serif}
+.facts span{color:var(--muted);font-size:15px}
+@media(max-width:700px){.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(2){border-right:0}.facts div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+/* sections */
+section{padding:64px 0 8px}
+h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.03em;margin:0 0 8px;line-height:1.1}
+.sub{color:var(--muted);margin:0 0 28px;max-width:60ch}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+@media(max-width:800px){.cols{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0;list-style:none}
+.chips li{font:600 16px "Bricolage Grotesque",sans-serif;padding:10px 18px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+.timeline{border-left:2px solid var(--brand);padding-left:24px;margin-left:6px}
+.timeline h3{margin:0;font-size:22px}
+.timeline .meta{color:var(--brand);font:600 15px "Bricolage Grotesque",sans-serif;margin:2px 0 12px}
+.timeline ul,.tick{margin:0;padding:0;list-style:none}
+.timeline li,.tick li{position:relative;padding-left:24px;margin:7px 0}
+.timeline li::before,.tick li::before{content:"✓";position:absolute;left:0;color:var(--brand);font-weight:700}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.card h3{margin:0 0 4px;font-size:19px}
+.card p{margin:0;color:var(--muted)}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.edu{display:grid;gap:14px}
+.edu .card b{font:600 14px "Bricolage Grotesque",sans-serif;color:var(--brand)}
+
+/* contact */
+.contact{margin:72px 0 0;background:var(--chalk-bg);color:var(--chalk);border-radius:24px;padding:44px 32px}
+.contact h2{color:var(--chalk)}
+.contact p{opacity:.8;max-width:56ch}
+.contact .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.contact .btn{border-color:var(--yellow);color:var(--chalk)}
+.contact .btn.main{background:var(--yellow);color:#10242b}
+.note{font:500 14px "Bricolage Grotesque",sans-serif;margin-top:14px;min-height:20px;color:var(--yellow)}
+footer{padding:34px 0 40px;color:var(--muted);font-size:15px;text-align:center}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.caret{animation:none}.btn,.side{transition:none}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="tel:+919938222123"><span aria-hidden="true">📞</span> 9938222123</a>
+  <a href="mailto:bik123ash@gmail.com"><span aria-hidden="true">✉️</span> bik123ash@gmail.com</a>
+</div>
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="logo" href="#top">Bikash Das</a>
+      <div class="links">
+        <button class="theme" id="theme" aria-label="Switch colour theme" title="Switch colour theme">◐</button>
+        <button class="theme menu" id="menu" aria-label="Open menu" aria-expanded="false" aria-controls="side"><i></i><i></i><i></i></button>
+      </div>
+    </nav>
+  </div>
+</header>
+<div class="scrim" id="scrim" hidden></div>
+<aside class="side" id="side" aria-label="Menu" aria-hidden="true">
+  <button class="theme close" id="close" aria-label="Close menu">✕</button>
+  <p class="who2">Bikash Das<span>Online Maths &amp; Science Tutor</span></p>
+  <nav aria-label="Sections">
+    <a href="#about">About</a><a href="#subjects">Subjects</a><a href="#experience">Experience</a>
+    <a href="#method">Method</a><a href="#tools">Tools</a><a href="#education">Education</a>
+    <a href="#availability">Availability</a><a href="#contact">Contact</a>
+  </nav>
+  <a class="btn main" href="cv.pdf" download="Bikash_Das_Tutor_Resume.pdf">Download CV</a>
+</aside>
+
+<main id="top" class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Bikash Das</h1>
+      <p class="role">Online Mathematics &amp; Science Tutor</p>
+      <p class="lead">I help students in Classes IX–X understand maths and science step by step, with clear explanations, regular practice and board-exam preparation for CBSE and ICSE.</p>
+      <div class="btns">
+        <a class="btn main" href="#contact">Book a class</a>
+        <a class="btn ghost" href="cv.pdf" download="Bikash_Das_Tutor_Resume.pdf">Download CV</a>
+        <a class="btn ghost" href="#experience">See my experience</a>
+      </div>
+    </div>
+    <div class="board" aria-label="Live classroom board">
+      <div class="who">
+        <div class="avatar"><img src="p.jpg" alt="Bikash Das" onerror="this.remove()">BD</div>
+        <div><b>Today’s class</b><span>Physics · Class X</span></div>
+      </div>
+      <div class="lines" id="lines" aria-live="off"></div>
+    </div>
+  </div>
+
+  <div class="facts" role="list">
+    <div role="listitem"><b>3 years</b><span>Offline tutoring experience</span></div>
+    <div role="listitem"><b>IX–X</b><span>Classes taught</span></div>
+    <div role="listitem"><b>CBSE &amp; ICSE</b><span>Board coverage</span></div>
+    <div role="listitem"><b>2–3 hours</b><span>Online, every day</span></div>
+  </div>
+
+  <section id="about">
+    <h2>About me</h2>
+    <div class="cols">
+      <p>I’m a Mathematics and Science educator from Bhubaneswar, Odisha. I hold a B.Sc. in Physics (Honours) and I’m currently pursuing a B.Ed. in Physical Science.</p>
+      <p>I’ve spent three years teaching students one-to-one and in small groups. I break hard topics into simple steps, so students understand the idea first and then practise it until it sticks. I teach in English and Hindi.</p>
+    </div>
+  </section>
+
+  <section id="subjects">
+    <h2>What I teach</h2>
+    <p class="sub">Classes IX–X, following the NCERT textbooks for CBSE and ICSE boards.</p>
+    <ul class="chips">
+      <li>Mathematics</li><li>Physics</li><li>Chemistry</li><li>Biology</li><li>General Science</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <p class="sub">Three years of tutoring students face to face, now moving to online classes.</p>
+    <div class="timeline">
+      <h3>Offline Mathematics &amp; Science Tutor</h3>
+      <p class="meta">3 years · Individual and group tutoring · Classes IX–X</p>
+      <ul>
+        <li>Taught Mathematics, Physics, Chemistry, Biology and General Science.</li>
+        <li>Explained complex concepts through simple, systematic methods.</li>
+        <li>Planned lessons around each student’s level and academic needs.</li>
+        <li>Ran doubt-clearing sessions and encouraged students to take part.</li>
+        <li>Prepared students for board exams with NCERT exercises, previous-year questions and sample papers.</li>
+        <li>Built students’ problem-solving skills in maths and science.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="method">
+    <h2>How I teach</h2>
+    <p class="sub">Every class follows the same simple path, from idea to exam practice.</p>
+    <ul class="tick cols" style="gap:0 36px">
+      <li>Concept-based explanation</li>
+      <li>Step-by-step problem solving</li>
+      <li>NCERT textbook-based lessons</li>
+      <li>Practice through examples and exercises</li>
+      <li>Previous-year question papers</li>
+      <li>Sample paper practice and revision</li>
+      <li>Interactive doubt-clearing sessions</li>
+      <li>Board examination preparation</li>
+    </ul>
+  </section>
+
+  <section id="tools">
+    <h2>Online teaching tools</h2>
+    <p class="sub">I teach live on Google Meet or Zoom and share notes after class.</p>
+    <div class="tools">
+      <div class="card"><h3>Google Meet &amp; Zoom</h3><p>Interactive live classes with screen sharing.</p></div>
+      <div class="card"><h3>Pen tablet</h3><p>Writing equations and diagrams by hand, live.</p></div>
+      <div class="card"><h3>Digital whiteboard</h3><p>Explaining concepts visually as we go.</p></div>
+      <div class="card"><h3>PowerPoint &amp; PDF notes</h3><p>Slides and study material shared digitally.</p></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu cols">
+      <div class="card"><b>2026 – present</b><h3>B.Ed. – Physical Science</h3><p>KSK College of Education, Acharya Nagarjuna University</p></div>
+      <div class="card"><b>2026</b><h3>B.Sc. – Physics (Honours)</h3><p>SSJ Degree College, Utkal University</p></div>
+    </div>
+  </section>
+
+  <section id="availability">
+    <h2>Availability</h2>
+    <div class="cols">
+      <ul class="tick">
+        <li>Online classes only</li>
+        <li>2–3 hours every day</li>
+        <li>Google Meet and Zoom</li>
+      </ul>
+      <ul class="tick">
+        <li>Students of Classes IX–X</li>
+        <li>CBSE and ICSE boards</li>
+        <li>Languages: English and Hindi (fluent)</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <h2>Start learning with me</h2>
+    <p>Send a message with your child’s class, board and the subject they need help with. I’ll reply with a class plan and timing.</p>
+    <div class="row">
+      <a class="btn main" href="cv.pdf" download="Bikash_Das_Tutor_Resume.pdf">Download CV</a>
+      <a class="btn" href="https://wa.me/919938222123" target="_blank" rel="noopener">Message on WhatsApp</a>
+      <a class="btn" href="tel:+919938222123">Call 9938222123</a>
+      <a class="btn" href="mailto:bik123ash@gmail.com">Email me</a>
+      <button class="btn" id="copy" type="button" style="background:none;cursor:pointer">Copy email</button>
+    </div>
+    <div class="note" id="note" role="status"></div>
+  </div>
+</main>
+
+<footer>© <span id="yr">2026</span> Bikash Das · Bhubaneswar, Odisha, India</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var s=localStorage.getItem("theme");if(s)root.setAttribute("data-theme",s)}catch(e){}
+  function toggle(){
+    var dark=root.getAttribute("data-theme")==="dark"||(!root.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);
+    var next=dark?"light":"dark";
+    root.setAttribute("data-theme",next);
+    try{localStorage.setItem("theme",next)}catch(e){}
+  }
+  document.getElementById("theme").addEventListener("click",toggle);
+  var side=document.getElementById("side"),scrim=document.getElementById("scrim"),mb=document.getElementById("menu");
+  function setMenu(o){
+    side.classList.toggle("open",o);side.setAttribute("aria-hidden",o?"false":"true");
+    scrim.hidden=!o;mb.setAttribute("aria-expanded",o?"true":"false");
+    document.body.style.overflow=o?"hidden":"";
+    (o?document.getElementById("close"):mb).focus();
+  }
+  mb.addEventListener("click",function(){setMenu(true)});
+  document.getElementById("close").addEventListener("click",function(){setMenu(false)});
+  scrim.addEventListener("click",function(){setMenu(false)});
+  side.addEventListener("click",function(e){if(e.target.closest("a"))setMenu(false)});
+  addEventListener("keydown",function(e){if(e.key==="Escape"&&side.classList.contains("open"))setMenu(false)});
+  document.getElementById("yr").textContent=new Date().getFullYear();
+
+  document.getElementById("copy").addEventListener("click",function(){
+    var n=document.getElementById("note"),m="bik123ash@gmail.com";
+    function ok(){n.textContent="Email copied."}
+    function no(){n.textContent="Copy failed. Email: "+m}
+    try{navigator.clipboard.writeText(m).then(ok,no)}catch(e){no()}
+  });
+
+  /* chalkboard: writes one equation after another */
+  var box=document.getElementById("lines");
+  var eq=[["Speed from rest","v² = u² + 2as"],["Newton’s second law","F = m × a"],["Ohm’s law","V = I × R"],["Pythagoras","a² + b² = c²"]];
+  var still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function row(e){var d=document.createElement("div");d.innerHTML='<span class="c">'+e[0]+'</span>';var v=document.createElement("div");box.appendChild(d);box.appendChild(v);return v}
+  if(still){eq.slice(0,3).forEach(function(e){row(e).textContent=e[1]})}
+  else{
+    var i=0;
+    (function next(){
+      if(i>=3){setTimeout(function(){box.innerHTML="";i=0;eq.push(eq.shift());next()},2600);return}
+      var e=eq[i],v=row(e),k=0,c=document.createElement("span");c.className="caret";
+      (function type(){
+        v.textContent=e[1].slice(0,k);v.appendChild(c);
+        if(k++<e[1].length){setTimeout(type,70)}else{c.remove();i++;setTimeout(next,500)}
+      })();
+    })();
+  }
+})();
+</script>
+</body>
+</html>
